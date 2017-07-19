@@ -1,0 +1,193 @@
+html, body {
+  font-size: 16px;
+  font-family: @text-font
+}
+html, body, #wrapper{
+  height: 100%;
+  min-height: 100%
+}
+#wrapper h1{
+  font-size: 30px;
+  margin-top: 0;
+  text-transform: uppercase;
+  margin-bottom: 40px
+}
+.om{
+  nav.navbar li a, header#inside h2{
+    font-family: @title-font
+  }
+  p {
+    font-family: @text-font;
+    font-size: 20px;
+    line-height: 35px
+  }
+  nav.navbar {
+    margin: 0;
+    border: 0 none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0
+  }
+  nav.navbar a.navbar-brand {
+    background: transparent url("../img/logo_branca_topo_opus.svg") no-repeat 0 0
+  }
+  .pattern_mask {
+    z-index: 9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    background-image: linear-gradient(rgba(90, 90, 90, .1) 1px, transparent 1px), linear-gradient(90deg, rgba(90, 90, 90, .1) 1px, transparent 1px), linear-gradient(rgba(90, 90, 90, .1) 1px, transparent 1px);
+    background-size: 4px 4px, 4px 4px, 1px 1px, 1px 1px;
+    background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px
+  }
+  header#inside{
+    position: relative;
+    max-height: 348px;
+    margin-bottom:40px;
+    .bg-cover;
+
+    h2{
+      position: relative;
+      z-index: 10;
+      font-size: 35px;
+      margin: 0;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      text-align: center;
+
+      span{
+        position: relative;
+
+        hr{
+          position: absolute;
+          bottom: -30px;
+          left:0;
+          width: 0;
+          border:1px solid @main-color;
+          .transitions(all 2s ease-out)
+        }
+      }
+    }
+  }
+  .obj-w-border{
+    text-align: center;
+
+    span{
+      position: relative;
+
+      &::after{
+        content: " ";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        width:0;
+        border-bottom:1px solid @main-color;
+        .transitions(all 1.5s ease-out)
+      }
+    };
+    &.aos-animate span::after{
+      left: 0;
+      width:100%
+    }
+  }
+  & > footer{
+    padding: 0;
+    margin: 0;
+    background-color: #2c2a29;
+    color: #FFF;
+
+    a.pre_footer{
+      display:block;
+      margin: 0;
+      padding: 30px 0;
+      text-align: center;
+      text-transform: uppercase;
+      color: #FFF;
+      text-decoration: none;
+      font-family: @title-font;
+      background: rgba(203,51,59,1);
+      background: -moz-linear-gradient(-45deg, rgba(203,51,59,1) 0%, rgba(203,51,51,1) 49%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 100%);
+      background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(203,51,59,1)), color-stop(49%, rgba(203,51,51,1)), color-stop(50%, rgba(178,35,42,1)), color-stop(100%, rgba(178,35,42,1)));
+      background: -webkit-linear-gradient(-45deg, rgba(203,51,59,1) 0%, rgba(203,51,51,1) 49%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 100%);
+      background: -o-linear-gradient(-45deg, rgba(203,51,59,1) 0%, rgba(203,51,51,1) 49%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 100%);
+      background: -ms-linear-gradient(-45deg, rgba(203,51,59,1) 0%, rgba(203,51,51,1) 49%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 100%);
+      background: linear-gradient(135deg, rgba(203,51,59,1) 0%, rgba(203,51,51,1) 49%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cb333b', endColorstr='#b2232a', GradientType=1 );
+
+      &:hover,&:focus{
+        text-decoration: none;
+        font-size: 24px
+      }
+    }
+  }
+
+  /*** Tablets and Desktops ***/
+  @media screen and (min-width: 768px) {
+    nav.navbar {
+      position: relative;
+      margin: 0;
+      padding: 40px 30px 20px;
+      width: 100%;
+      background: transparent;
+      z-index: 12;
+
+      a.navbar-brand {
+        width: 212px;
+        height: 60px;
+        text-indent: -161187em
+      };
+      li:hover a, li:focus a, li.active a,
+      ul.nav.nav-pills li:hover a, ul.nav.nav-pills li:focus a, ul.nav.nav-pills li.active a {
+        background-color: transparent!important;
+        color:#FFF!important
+      };
+      li.active a, li.active:hover a, li.active:focus a,
+      ul.nav.nav-pills li.active a, ul.nav.nav-pills li.active:hover a, ul.nav.nav-pills li.active:focus a{
+        cursor: default;
+      };
+      li a,
+      ul.nav.nav-pills li a {
+        font-size: 18px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        background-color: transparent;
+        overflow: hidden;
+        display:inline-block;
+        position: relative;
+        padding: 0;
+        margin:0 10px
+      };
+      li a::before,
+      ul.nav.nav-pills li a::before{
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        padding: 0;
+        max-width: 0;
+        color: @main-color;
+        content: attr(data-hover);
+        .transitions(max-width .3s)
+      };
+      li a:hover::before, li a:focus::before, li.active a::before,
+      ul.nav.nav-pills li a:hover::before, ul.nav.nav-pills li a:focus::before, ul.nav.nav-pills li.active a::before {
+        max-width: 100%
+      }
+    };
+    nav.navbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    header#inside{
+      height: 348px
+    }
+    header#inside h2{
+      padding-top: 160px
+    }
+  }
+}

@@ -1,0 +1,99 @@
+#carousel-om {
+  overflow: hidden;
+  display: none
+}
+#carousel-om .carousel-inner {
+  z-index: 7
+}
+#carousel-om .carousel-inner .item img {
+  width: 100%
+}
+#carousel-om .carousel-inner .item .carousel-caption {
+  display: none
+}
+#carousel-om #caption {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  z-index: 10
+}
+#carousel-om #caption h2 {
+  font-family: @title-font;
+  font-size: 50px;
+  line-height:50px;
+  padding-bottom: 15px;
+  text-align: left;
+  position: relative;
+  margin: 0
+}
+#carousel-om #caption h2::after {
+  content: " ";
+  clear: both;
+  background: transparent url("../img/home-display-caption-border.gif") repeat-x bottom left;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  -webkit-transition: all 2s ease-out;
+  -moz-transition: all 2s ease-out;
+  -o-transition: all 2s ease-out;
+  transition: all 2s ease-out;
+}
+#carousel-om #caption.anima h2::after {
+  width: 100%
+}
+#carousel-om #caption h2 a {
+  color: #FFF;
+  display: block
+}
+#carousel-om #caption h2 a:hover {
+  text-decoration: none;
+}
+#carousel-om .carousel-control {
+  z-index: 11;
+  text-align: center;
+}
+#carousel-om .carousel-control, #carousel-om .carousel-control:hover, #carousel-om .carousel-control:focus {
+  background: transparent;
+}
+#carousel-om .carousel-control span {
+  text-indent: -161187em;
+  width: 22px;
+  height: 44px;
+  position: absolute;
+  top: 50%;
+  margin-top: -22px
+}
+#carousel-om .carousel-control.left span {
+  background: transparent url(../img/seta.svg) no-repeat center center;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+#carousel-om .carousel-control.right span {
+  background: transparent url(../img/seta.svg) no-repeat center center;
+}
+#carousel-om .carousel-indicators {
+  z-index: 9;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 0 2em
+}
+#carousel-om .carousel-indicators li {
+  background-color: #a7a7a7;
+  width: 7px;
+  height: 7px;
+  border: 0 none;
+  margin-left: 10px;
+  margin-right: 10px
+}
+#carousel-om .carousel-indicators li.active {
+  background-color: #cb333b
+}

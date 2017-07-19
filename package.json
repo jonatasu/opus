@@ -1,0 +1,26 @@
+{
+  "name": "opus",
+  "version": "1.0.0",
+  "description": "OpusMúltipla new website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonatasu/opus.git"
+  },
+  "author": "Jônatas Filipe Vieira and James Bueno from FISH_T",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonatasu/opus/issues"
+  },
+  "homepage": "https://github.com/jonatasu/opus#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-less": "^1.4.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "jit-grunt": "^0.10.0"
+  }
+}
