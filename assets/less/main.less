@@ -3,14 +3,16 @@ html, body {
   font-family: @text-font
 }
 html, body, #wrapper{
-  height: 100%;
   min-height: 100%
 }
-#wrapper h1{
-  font-size: 30px;
-  margin-top: 0;
-  text-transform: uppercase;
-  margin-bottom: 40px
+#wrapper{
+  h1{
+    font-family: @title-font;
+    font-size: 30px;
+    margin-top: 0;
+    text-transform: uppercase;
+    margin-bottom: 40px
+  }
 }
 .om{
   nav.navbar li a, header#inside h2{
@@ -21,16 +23,19 @@ html, body, #wrapper{
     font-size: 20px;
     line-height: 35px
   }
+
+  /** MAIN MENU **/
   nav.navbar {
     margin: 0;
     border: 0 none;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0
+    .round-borders(0);
+
+    a.navbar-brand {
+      background: transparent url("../img/logo_branca_topo_opus.svg") no-repeat 0 0
+    }
   }
-  nav.navbar a.navbar-brand {
-    background: transparent url("../img/logo_branca_topo_opus.svg") no-repeat 0 0
-  }
+
+  /** Pattern mask for banners **/
   .pattern_mask {
     z-index: 9;
     position: absolute;
@@ -43,6 +48,8 @@ html, body, #wrapper{
     background-size: 4px 4px, 4px 4px, 1px 1px, 1px 1px;
     background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px
   }
+
+  /** HEADER from inner pages **/
   header#inside{
     position: relative;
     max-height: 348px;
@@ -55,6 +62,7 @@ html, body, #wrapper{
       font-size: 35px;
       margin: 0;
       color: #FFFFFF;
+      font-family: @title-font;
       text-transform: uppercase;
       text-align: center;
 
@@ -67,11 +75,13 @@ html, body, #wrapper{
           left:0;
           width: 0;
           border:1px solid @main-color;
-          .transitions(all 2s ease-out)
+          .transitions(all 2s 1s ease-out)
         }
       }
     }
   }
+
+  /** Border bottom effect **/
   .obj-w-border{
     text-align: center;
 
@@ -85,7 +95,7 @@ html, body, #wrapper{
         left: 50%;
         width:0;
         border-bottom:1px solid @main-color;
-        .transitions(all 1.5s ease-out)
+        .transitions(all .4s 1.5s ease-out)
       }
     };
     &.aos-animate span::after{
@@ -93,11 +103,21 @@ html, body, #wrapper{
       width:100%
     }
   }
+
+  /** FRAME for VIDEOS **/
+  section.video{
+    padding: 60px;
+    background-color: @dark-color
+  }
+
+  /** FOOTER **/
   & > footer{
+    position: relative;
     padding: 0;
     margin: 0;
-    background-color: #2c2a29;
+    background-color: @dark-color;
     color: #FFF;
+    text-align: center;
 
     a.pre_footer{
       display:block;
@@ -122,12 +142,107 @@ html, body, #wrapper{
         font-size: 24px
       }
     }
+    a.footer-svg{
+      display:inline-block;
+      margin-left:15px;
+      margin-right:15px;
+      .transitions(opacity .3s linear);
+
+      &.logo-grupo-om{
+        width:416.447px;
+        height:37.447px
+      }
+      &.logo-opus-multipla{
+        width: 130.359px;
+        height: 35.635px
+      }
+      &.logo-brainbox{
+        width: 104.237px;
+        height: 32.565px
+      }
+      &.logo-housecricket{
+        width: 113.951px;
+        height: 32.212px
+      }
+      &.logo-tailormedia{
+        width: 135.645px;
+        height: 39.46px
+      }
+      &.logo-fisht{
+        width: 48.939px;
+        height: 20px
+      }
+      &.sm-facebook{
+        width:20.091px;
+        height:38.688px
+      }
+      &.sm-instagram{
+        width:29.719px;
+        height: 29.719px
+      }
+      &.sm-youtube{
+        width: 30.018px;
+        height: 36.236px
+      }
+      &:hover,&:focus{
+        opacity: .5
+      }
+    }
+  }
+  ul.nav.nav-pills{
+    li{
+      &:hover a, ul.nav.nav-pills &:focus a, ul.nav.nav-pills &.active a {
+        background-color: transparent!important;
+        color:transparent!important
+      };
+      &.active a, &.active:hover a, &.active:focus a{
+        cursor: default;
+      };
+      a {
+        font-size: 18px;
+        width: 100%;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        background-color: transparent;
+        overflow: hidden;
+        display:inline-block;
+        position: relative;
+        padding: 30px 0;
+        margin:0;
+        .transitions(color .2s linear);
+
+        &::before{
+          position: absolute;
+          top: 30px;
+          left: 0;
+          text-align:center;
+          white-space: nowrap;
+          overflow: hidden;
+          padding: 0;
+          width: 0;
+          color: @main-color;
+          opacity: 0;
+          content: attr(data-hover);
+          .transitions(all .3s)
+        }
+        &:hover::before, &:focus::before{
+          width: 100%;
+          opacity: 1
+        }
+      }
+      &.active a::before {
+        width: 100%
+      }
+    }
   }
 
   /*** Tablets and Desktops ***/
   @media screen and (min-width: 768px) {
     nav.navbar {
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
       margin: 0;
       padding: 40px 30px 20px;
       width: 100%;
@@ -139,55 +254,84 @@ html, body, #wrapper{
         height: 60px;
         text-indent: -161187em
       };
-      li:hover a, li:focus a, li.active a,
-      ul.nav.nav-pills li:hover a, ul.nav.nav-pills li:focus a, ul.nav.nav-pills li.active a {
-        background-color: transparent!important;
-        color:#FFF!important
+      li{
+        &:hover a, &:focus a, &.active a {
+          background-color: transparent!important;
+        };
+        &.active a {
+          background-color: transparent!important;
+          color:transparent!important
+        };
+        &.active a, &.active:hover a, &.active:focus a{
+          cursor: default;
+        };
+        a {
+          font-size: 18px;
+          text-transform: uppercase;
+          color: #FFFFFF;
+          background-color: transparent;
+          overflow: hidden;
+          display:inline-block;
+          position: relative;
+          padding: 0;
+          margin:0 10px;
+          .transitions(color .2s linear);
+
+          &::before{
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 0;
+            max-width: 0;
+            color: @main-color;
+            content: attr(data-hover);
+            .transitions(max-width .3s)
+          }
+        }
       };
-      li.active a, li.active:hover a, li.active:focus a,
-      ul.nav.nav-pills li.active a, ul.nav.nav-pills li.active:hover a, ul.nav.nav-pills li.active:focus a{
-        cursor: default;
-      };
-      li a,
-      ul.nav.nav-pills li a {
-        font-size: 18px;
-        text-transform: uppercase;
-        color: #FFFFFF;
-        background-color: transparent;
-        overflow: hidden;
-        display:inline-block;
-        position: relative;
-        padding: 0;
-        margin:0 10px
-      };
-      li a::before,
-      ul.nav.nav-pills li a::before{
-        position: absolute;
-        top: 0;
-        left: 0;
-        overflow: hidden;
-        padding: 0;
-        max-width: 0;
-        color: @main-color;
-        content: attr(data-hover);
-        .transitions(max-width .3s)
-      };
-      li a:hover::before, li a:focus::before, li.active a::before,
-      ul.nav.nav-pills li a:hover::before, ul.nav.nav-pills li a:focus::before, ul.nav.nav-pills li.active a::before {
+
+      li a:hover::before, li a:focus::before, li.active a::before{
         max-width: 100%
       }
     };
-    nav.navbar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+    ul.nav.nav-pills{
+      margin-bottom: 60px
     }
     header#inside{
-      height: 348px
+      height: 348px;
+
+      h2{
+        padding-top: 160px
+      }
     }
-    header#inside h2{
-      padding-top: 160px
+    & > footer{
+      .footer-svg{
+        &.logo-grupo-om{
+          margin-bottom: 60px
+        }
+        &.sm-instagram{
+          margin: 90px 95px 30px
+        }
+        &.logo-fisht{
+          position:absolute;
+          right:30px;
+          bottom:30px
+        }
+      }
+    }
+  }
+
+  /*** Smartphones ***/
+  @media screen and (max-width: 768px) {
+    ul.nav.nav-pills{
+      margin-bottom: 30px
+    }
+    & > footer{
+      .footer-svg{
+        margin-bottom: 30px
+      }
     }
   }
 }
