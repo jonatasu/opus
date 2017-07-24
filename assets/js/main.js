@@ -11,8 +11,17 @@ AOS.init({
   offset: 100,
   duration: 1000,
   easing: 'ease-in-sine',
-  delay: 200
+  delay: 200,
+  once: true
 });
+
+// Mobile alternative for BS3 tabs
+if($("#mobile_tabs").length !==0){
+  $("#mobile_tabs").on("change", function(){
+    $('#tabs_about a[href="'+$(this).val()+'"]').tab('show');
+    $("html, body").scrollTop($("#mobile_tabs").offset().top);
+  });
+}
 
 $(document).ready(function(){
 

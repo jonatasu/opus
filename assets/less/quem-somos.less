@@ -1,3 +1,112 @@
+.om{
+  .ideativos{
+    text-align:center;
+
+    .photo{
+      width: 176px;
+      max-height: 258px;
+      overflow:hidden;
+      margin: 0 auto 25px;
+      border: 1px solid @main-color;
+      img{
+        width: 100%
+      }
+    }
+    h3{
+      font-size: 22px;
+      font-weight: bold;
+      margin: 0 0 30px;
+      color:#FFF
+    }
+    @media screen and (min-width: 768px) {
+      h3{
+        white-space: nowrap
+      }
+    }
+    p{
+      color:@main-color;
+      min-height: 70px
+    }
+    & > a{
+      display:block;
+      width:46px;
+      height:46px;
+      padding: 10px;
+      margin: 30px auto 15px;
+      border: 1px solid transparent;
+      .transitions(border-color .4s linear);
+
+      &:hover,&:focus{
+        border-color:@main-color
+      }
+    }
+  }
+  .nav-tabs{
+    margin-bottom: 40px;
+
+      li{
+      padding-right: 40px;
+
+      &:last-child{
+        padding-right: 0
+      }
+      &.active{
+        a,a:hover,a:focus{
+          background-color: @main-color;
+          cursor: default
+        }
+      }
+      a{
+        color: #FFF;
+        background-color: @dark-color;
+        border: 0 none;
+        text-transform: uppercase;
+        font-famiy: @title-font;
+        .round-borders(0);
+        .transitions(background-color .2s linear);
+
+        &:hover,&:focus{
+          background-color: @main-color
+        }
+      }
+    }
+  }
+  .tab-content{
+    padding: 30px;
+    background-color: @main-color;
+
+    p{
+      color: #FFF
+    }
+  }
+  .inverse{
+    .nav-tabs{
+      li{
+        &.active{
+          a,a:hover,a:focus{
+            background-color: #FFF;
+            cursor: default
+          }
+        }
+        a{
+          color: @main-color;
+          background-color: @dark-color;
+
+          &:hover,&:focus{
+            background-color: #f5f5f5
+          }
+        }
+      }
+    }
+    .tab-content{
+      background-color: #FFF;
+
+      p {
+        color: @dark-color
+      }
+    }
+  }
+}
 .page_quem-somos{
   header#inside{
     background: transparent url("http://lorempixel.com/1366/360/city/") no-repeat top center;

@@ -13,6 +13,11 @@ html, body, #wrapper{
     text-transform: uppercase;
     margin-bottom: 40px
   }
+  .full-width{
+    &, & > img{
+      width: 100%
+    }
+  }
 }
 .om{
   nav.navbar li a, header#inside h2{
@@ -21,7 +26,11 @@ html, body, #wrapper{
   p {
     font-family: @text-font;
     font-size: 20px;
-    line-height: 35px
+    line-height: 35px;
+    margin-bottom:30px
+  }
+  a:focus, a:hover{
+    color: @main-color
   }
 
   /** MAIN MENU **/
@@ -94,13 +103,37 @@ html, body, #wrapper{
         bottom: -10px;
         left: 50%;
         width:0;
-        border-bottom:1px solid @main-color;
+        border-bottom:2px solid @main-color;
         .transitions(all .4s 1.5s ease-out)
       }
     };
     &.aos-animate span::after{
       left: 0;
       width:100%
+    }
+  }
+  .inverse{
+    background-color: @main-color;
+
+    &.darker{
+      background-color: @dark-color;
+
+      .obj-w-border{
+        span::after{
+          border-bottom-color: @main-color
+        }
+      }
+    }
+
+    .obj-w-border{
+      color:#FFF;
+
+      span::after{
+        border-bottom-color: @dark-color
+      }
+    }
+    p{
+      color: #FFF
     }
   }
 
@@ -123,23 +156,30 @@ html, body, #wrapper{
       display:block;
       margin: 0;
       padding: 30px 0;
+      font-size: 24px;
       text-align: center;
       text-transform: uppercase;
       color: #FFF;
       text-decoration: none;
       font-family: @title-font;
+      .transitions(all .4s linear);
       background: rgba(203,51,59,1);
-      background: -moz-linear-gradient(-45deg, rgba(203,51,59,1) 0%, rgba(203,51,51,1) 49%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 100%);
-      background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(203,51,59,1)), color-stop(49%, rgba(203,51,51,1)), color-stop(50%, rgba(178,35,42,1)), color-stop(100%, rgba(178,35,42,1)));
-      background: -webkit-linear-gradient(-45deg, rgba(203,51,59,1) 0%, rgba(203,51,51,1) 49%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 100%);
-      background: -o-linear-gradient(-45deg, rgba(203,51,59,1) 0%, rgba(203,51,51,1) 49%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 100%);
-      background: -ms-linear-gradient(-45deg, rgba(203,51,59,1) 0%, rgba(203,51,51,1) 49%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 100%);
-      background: linear-gradient(135deg, rgba(203,51,59,1) 0%, rgba(203,51,51,1) 49%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 100%);
+      background: -moz-linear-gradient(-45deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 100%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 101%);
+      background: -webkit-gradient(left top, right bottom, color-stop(0, rgba(203,51,59,1)), color-stop(50%, rgba(203,51,51,1)), color-stop(50%, rgba(178,35,42,1)), color-stop(101%, rgba(178,35,42,1)));
+      background: -webkit-linear-gradient(-45deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 100%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 101%);
+      background: -o-linear-gradient(-45deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 100%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 101%);
+      background: -ms-linear-gradient(-45deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 100%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 101%);
+      background: linear-gradient(135deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 100%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 101%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cb333b', endColorstr='#b2232a', GradientType=1 );
 
       &:hover,&:focus{
         text-decoration: none;
-        font-size: 24px
+        background: -moz-linear-gradient(-45deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 0, rgba(178,35,42,1) 0, rgba(178,35,42,1) 101%);
+        background: -webkit-gradient(left top, right bottom, color-stop(0, rgba(203,51,59,1)), color-stop(0, rgba(203,51,51,1)), color-stop(50%, rgba(178,35,42,1)), color-stop(101%, rgba(178,35,42,1)));
+        background: -webkit-linear-gradient(-45deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 0, rgba(178,35,42,1) 0, rgba(178,35,42,1) 101%);
+        background: -o-linear-gradient(-45deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 0, rgba(178,35,42,1) 0, rgba(178,35,42,1) 101%);
+        background: -ms-linear-gradient(-45deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 0, rgba(178,35,42,1) 0, rgba(178,35,42,1) 101%);
+        background: linear-gradient(135deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 0, rgba(178,35,42,1) 0, rgba(178,35,42,1) 101%);
       }
     }
     a.footer-svg{
@@ -238,6 +278,14 @@ html, body, #wrapper{
 
   /*** Tablets and Desktops ***/
   @media screen and (min-width: 768px) {
+    #wrapper > section > .container,
+    #wrapper > section > .container-fluid {
+      padding: 0 40px
+    }
+    section{
+      padding-top: 60px;
+      padding-bottom: 60px
+    }
     nav.navbar {
       position: absolute;
       top: 0;
