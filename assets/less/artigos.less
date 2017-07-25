@@ -6,9 +6,11 @@
     display:block;
     clear: both;
     color: @dark-color;
+    .transitions(all .2s linear);
 
     &:hover,&:focus{
       text-decoration: none;
+      border-color: @dark-color;
 
       span.title, span.leiamais{
         color: @main-color
@@ -32,7 +34,7 @@
         text-align: right;
         padding: 15px
       }
-    }    
+    }
     .cover{
       width: 100%
     }
