@@ -18,6 +18,17 @@ html, body, #wrapper{
       width: 100%
     }
   }
+  .group:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .pad_0{
+    padding: 0 !important
+  }
+  .mar_0{
+    margin: 0 !important
+  }
 }
 .om{
   nav.navbar li a, header#inside h2{
@@ -64,28 +75,27 @@ html, body, #wrapper{
     max-height: 348px;
     margin-bottom:40px;
     .bg-cover;
+  }
+  .obj-w-border-2{
+    position: relative;
+    z-index: 10;
+    font-size: 35px;
+    margin: 0;
+    color: #FFFFFF;
+    font-family: @title-font;
+    text-transform: uppercase;
+    text-align: center;
 
-    h2{
+    span{
       position: relative;
-      z-index: 10;
-      font-size: 35px;
-      margin: 0;
-      color: #FFFFFF;
-      font-family: @title-font;
-      text-transform: uppercase;
-      text-align: center;
 
-      span{
-        position: relative;
-
-        hr{
-          position: absolute;
-          bottom: -30px;
-          left:0;
-          width: 0;
-          border:1px solid @main-color;
-          .transitions(all 2s 1s ease-out)
-        }
+      hr{
+        position: absolute;
+        bottom: -30px;
+        left:0;
+        width: 0;
+        border:1px solid @main-color;
+        .transitions(all 2s 1s ease-out)
       }
     }
   }

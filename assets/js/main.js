@@ -26,12 +26,23 @@ if($("#mobile_tabs").length !==0){
 $(document).ready(function(){
 
   // Animate the bottom border from main title
-  if($("header#inside").length > 0){
-    var td = $("header#inside h2 span"),
-        tdr = td.parent().width() - (td.width() + td.offset().left),
+  if($("h2.obj-w-border-2").length > 0){
+    var td = $("h2.obj-w-border-2").find("span"),
+        tdr = td.parent().width() - (td.width() + td.position().left),
         hr = td.find("hr");
     hr.width(td.width() + tdr);
   }
+
+  $(".case").on("mouseover", function(){
+    var td = $(this).find("span.obj-w-border-2 span"),
+        tdr = td.parent().width() - (td.width() + td.position().left),
+        hr = td.find("hr");
+    hr.width(td.width() + tdr);
+  }).on("mouseleave", function(){
+    var td = $(this).find("span"),
+        hr = td.find("hr");
+    hr.width(0);
+  });
 });
 
 $(window).scroll(function(){

@@ -1,0 +1,45 @@
+.om{
+  a.artigo{
+    margin:0 20px 30px;
+    padding: 20px;
+    border: 2px solid @main-color;
+    display:block;
+    clear: both;
+    color: @dark-color;
+
+    &:hover,&:focus{
+      text-decoration: none;
+
+      span.title, span.leiamais{
+        color: @main-color
+      }
+    }
+
+    span{
+      display:block;
+
+      &.title{
+        font-size:26px;
+        text-transform: uppercase;
+        font-family: @title-font;
+        margin-bottom:15px
+      }
+      &.description{
+        font-size:16px;
+        margin-bottom:15px
+      }
+      &.leiamais{
+        text-align: right;
+        padding: 15px
+      }
+    }    
+    .cover{
+      width: 100%
+    }
+  }
+}
+.page_artigos{
+  header#inside{
+    background: transparent url("http://lorempixel.com/1366/360/city/") no-repeat top center;
+  }
+}
