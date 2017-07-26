@@ -1,8 +1,6 @@
 module.exports = function(grunt) {
   require('jit-grunt')(grunt);
 
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-
   grunt.initConfig({
     less: {
       development: {
@@ -22,7 +20,7 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      all: ['assets/js/*.js']
+      all: ['assets/js/*.js',"!assets/js/typekit.js"]
     },
     watch: {
       styles: {
@@ -32,10 +30,14 @@ module.exports = function(grunt) {
           livereload: true,
           nospawn: true
         }
-      }
+      },
+			scripts: {
+				files: ['assets/js/*.js'],
+        tasks: ['jshint']
+			}
     }
   });
 
-
-  grunt.registerTask('default', ['less', 'watch']);
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.registerTask('default', ['less', 'jshint', 'watch']);
 };
