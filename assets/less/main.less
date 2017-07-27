@@ -48,10 +48,11 @@ html, body, #wrapper{
   a, button, input[type="button"], input[type="submit"]{
     &.btn_om{
       display:inline-block;
-      font-size:20px;
-      padding: 3px 30px;
+      font-size: 20px;
+      padding: 2px 45px;
       border: 0 none;
       outline: 0 none;
+      font-weight: bold;
 
       .transitions(background .4s linear);
       .round-borders(15px);
@@ -321,7 +322,12 @@ html, body, #wrapper{
     }
     section{
       padding-top: 60px;
-      padding-bottom: 60px
+      padding-bottom: 60px;
+
+      &.half-pad{
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
     }
     nav.navbar {
       position: absolute;

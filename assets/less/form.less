@@ -1,0 +1,75 @@
+.om{
+  form{
+    .form-control{
+      font-size: 20px;
+      color: @dark-color;
+      border-color: @main-color;
+      .round-borders(0)
+    }
+    .checkbox_wrapper{
+      padding-left: 36px;
+      min-height: 40px;
+      padding-top: 0;
+      line-height: 30px;
+      margin-top: 0;
+      margin-bottom: 0;
+
+      input[type="checkbox"]{
+        position: absolute;
+        margin-top: 4px;
+        margin-left: -20px;
+        opacity: 0;
+        z-index: 1
+      }
+      label{
+        max-width: 100%;
+        display: inline-block;
+        position: relative;
+        padding-left: 5px;
+        min-height: 20px;
+        margin-bottom: 0;
+        font-weight: 400;
+        cursor: pointer;
+
+        &::before,&::after{
+          content: "";
+          display: inline-block;
+          position: absolute;
+          left: 0;
+        }
+        &::before{
+          width: 30px;
+          height: 30px;
+          margin-left: -32px;
+          border: 2px solid @main-color;
+          background-color: #f0f0f0;
+          .round-borders(50%);
+          .transitions(all .2s linear)
+        }
+        &::after {
+          width: 16px;
+          height: 16px;
+          top: 0;
+          margin-left: -30px;
+          padding-left: 3px;
+          font-size: 22px;
+          color: #FFF
+        }
+      }
+      input[type="checkbox"]:checked+label::before, input[type="radio"]:checked+label::before {
+        background-color: @main-color;
+        border-color: @main-color
+      }
+      input[type="checkbox"]:checked+label::after, input[type="radio"]:checked+label::after {
+        font-family: "FontAwesome";
+        content: "\f00c"
+      }
+    }
+  }
+  input:focus{ border-color: darken(@main-color, 15%) };
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */ color: lighten(@dark-color, 10%) }
+  ::-moz-placeholder { /* Firefox 19+ */ color: lighten(@dark-color, 10%) }
+  :-ms-input-placeholder { /* IE 10+ */ color: lighten(@dark-color, 10%) }
+  :-moz-placeholder { /* Firefox 18- */ color: lighten(@dark-color, 10%) }
+  ::placeholder { color: lighten(@dark-color, 10%) }
+}
