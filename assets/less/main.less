@@ -44,6 +44,33 @@ html, body, #wrapper{
     color: @main-color
   }
 
+  /** Default OM buttons **/
+  a, button, input[type="button"], input[type="submit"]{
+    &.btn_om{
+      display:inline-block;
+      font-size:20px;
+      padding: 3px 30px;
+      border: 0 none;
+      outline: 0 none;
+
+      .transitions(background .4s linear);
+      .round-borders(15px);
+
+      &:hover, &:focus{
+        text-decoration: none;
+        outline: 0 none
+      }
+      &.btn_default{
+        background-color: @main-color;
+        color: #FFF;
+
+        &:hover,&:focus{
+          background-color: darken(@main-color, 20%)
+        }
+      }
+    }
+  }
+
   /** MAIN MENU **/
   nav.navbar {
     margin: 0;
@@ -76,6 +103,8 @@ html, body, #wrapper{
     margin-bottom:40px;
     .bg-cover;
   }
+
+  /** Border bottom effect **/
   .obj-w-border-2{
     position: relative;
     z-index: 10;
@@ -99,8 +128,6 @@ html, body, #wrapper{
       }
     }
   }
-
-  /** Border bottom effect **/
   .obj-w-border{
     text-align: center;
 

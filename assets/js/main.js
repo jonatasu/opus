@@ -9,8 +9,8 @@ $(".om nav.navbar li.active a").on("click", function(e){ e.preventDefault(); });
 AOS.init({
   disable: 'mobile',
   offset: 100,
-  duration: 1000,
-  easing: 'ease-in-sine',
+  duration: 1400,
+  easing: 'ease-out',
   delay: 200,
   once: true
 });
