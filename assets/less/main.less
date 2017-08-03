@@ -207,119 +207,166 @@ html, body, #wrapper{
       font-size: 24px;
       text-align: center;
       text-transform: uppercase;
-      color: #FFF;
+      color: transparent;
       text-decoration: none;
       font-family: @title-font;
-      .transitions(all .4s linear);
-      background: rgba(203,51,59,1);
-      background: -moz-linear-gradient(-45deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 100%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 101%);
-      background: -webkit-gradient(left top, right bottom, color-stop(0, rgba(203,51,59,1)), color-stop(50%, rgba(203,51,51,1)), color-stop(50%, rgba(178,35,42,1)), color-stop(101%, rgba(178,35,42,1)));
-      background: -webkit-linear-gradient(-45deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 100%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 101%);
-      background: -o-linear-gradient(-45deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 100%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 101%);
-      background: -ms-linear-gradient(-45deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 100%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 101%);
-      background: linear-gradient(135deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 100%, rgba(178,35,42,1) 50%, rgba(178,35,42,1) 101%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cb333b', endColorstr='#b2232a', GradientType=1 );
+      background: @main-color;
+      position:relative;
+      overflow: hidden;
 
-      &:hover,&:focus{
-        text-decoration: none;
-        background: -moz-linear-gradient(-45deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 0, rgba(178,35,42,1) 0, rgba(178,35,42,1) 101%);
-        background: -webkit-gradient(left top, right bottom, color-stop(0, rgba(203,51,59,1)), color-stop(0, rgba(203,51,51,1)), color-stop(50%, rgba(178,35,42,1)), color-stop(101%, rgba(178,35,42,1)));
-        background: -webkit-linear-gradient(-45deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 0, rgba(178,35,42,1) 0, rgba(178,35,42,1) 101%);
-        background: -o-linear-gradient(-45deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 0, rgba(178,35,42,1) 0, rgba(178,35,42,1) 101%);
-        background: -ms-linear-gradient(-45deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 0, rgba(178,35,42,1) 0, rgba(178,35,42,1) 101%);
-        background: linear-gradient(135deg, rgba(203,51,59,1) 0, rgba(203,51,51,1) 0, rgba(178,35,42,1) 0, rgba(178,35,42,1) 101%);
+      &::before,&::after{
+        position: absolute;
+        top: 0;
+        bottom:0;
+        height:100%
+      }
+      &::before{
+        content: " ";
+        z-index: 1;
+        background-color: rgba(178,35,42,1);
+        width: 125%;
+        left: 125%;
+        .transform(skew(-45deg, 0deg));
+        .transitions(all .3s linear);
+      }
+      &::after{
+        content: attr(data-label);
+        left: 0;
+        width: 100%;
+        z-index:2;
+        padding: 30px 0;
+        font-size: 24px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #FFF;
+      }
+      &:hover,&:focus{/**/
+        &::before{
+          left: -15%;
+        }
       }
     }
     a.footer-svg{
       display:inline-block;
       margin-left:15px;
       margin-right:15px;
-      .transitions(opacity .3s linear);
+
+      .cls-1{
+        .transitions(fill .3s linear)
+      }
 
       &.logo-grupo-om{
         width:416.447px;
-        height:37.447px
       }
       &.logo-opus-multipla{
         width: 130.359px;
-        height: 35.635px
       }
       &.logo-brainbox{
         width: 104.237px;
-        height: 32.565px
       }
       &.logo-housecricket{
         width: 113.951px;
-        height: 32.212px
       }
       &.logo-tailormedia{
         width: 135.645px;
-        height: 39.46px
       }
       &.logo-fisht{
         width: 48.939px;
-        height: 20px
       }
+
+      &.logo-grupo-om .cls-1,
+      &.logo-opus-multipla .cls-1,
+      &.logo-brainbox .cls-1,
+      &.logo-housecricket .cls-1,
+      &.logo-tailormedia .cls-1,
+      &.logo-fisht .cls-1{
+        fill: #FFFFFF;
+      }
+      &.logo-grupo-om:hover .cls-1,
+      &.logo-opus-multipla:hover .cls-1,
+      &.logo-brainbox:hover .cls-1,
+      &.logo-housecricket:hover .cls-1,
+      &.logo-tailormedia:hover .cls-1,
+      &.logo-fisht:hover .cls-1,
+      &.logo-grupo-om:focus .cls-1,
+      &.logo-opus-multipla:focus .cls-1,
+      &.logo-brainbox:focus .cls-1,
+      &.logo-housecricket:focus .cls-1,
+      &.logo-tailormedia:focus .cls-1,
+      &.logo-fisht:focus .cls-1{
+        fill: @main-color;
+      }
+
       &.sm-facebook{
-        width:20.091px;
-        height:38.688px
+        width:18.091px;
       }
       &.sm-instagram{
-        width:29.719px;
-        height: 29.719px
+        width:27.719px;
       }
       &.sm-youtube{
-        width: 30.018px;
-        height: 36.236px
+        width: 28.018px;
       }
-      &:hover,&:focus{
-        opacity: .5
+      &.sm-facebook .cls-1,
+      &.sm-instagram .cls-1,
+      &.sm-youtube .cls-1{
+        fill: @main-color;
+      }
+      &.sm-facebook:hover .cls-1,
+      &.sm-instagram:hover .cls-1,
+      &.sm-youtube:hover .cls-1,
+      &.sm-facebook:focus .cls-1,
+      &.sm-instagram:focus .cls-1,
+      &.sm-youtube:focus .cls-1{
+        fill: #ffffff;
       }
     }
   }
   ul.nav.nav-pills{
     li{
-      &:hover a, ul.nav.nav-pills &:focus a, ul.nav.nav-pills &.active a {
-        background-color: transparent!important;
-        color:transparent!important
-      };
+      padding: 30px 0;
+      margin:0;
+
+      &:hover a, &:focus a, &.active a {
+        background-color: transparent!important
+      }
       &.active a, &.active:hover a, &.active:focus a{
         cursor: default;
-      };
+        color:transparent!important
+      }
       a {
-        font-size: 18px;
-        width: 100%;
+        font-size: @menu-item-font-size;
+        font-family: @title-font;
+        padding: 0;
         text-transform: uppercase;
         color: #FFFFFF;
         background-color: transparent;
         overflow: hidden;
         display:inline-block;
         position: relative;
-        padding: 30px 0;
-        margin:0;
         .transitions(color .2s linear);
 
+        &:hover, &:focus{
+          color: transparent!important
+        }
         &::before{
           position: absolute;
-          top: 30px;
+          top: 0;
           left: 0;
           text-align:center;
           white-space: nowrap;
           overflow: hidden;
           padding: 0;
-          width: 0;
+          max-width: 0;
           color: @main-color;
-          opacity: 0;
           content: attr(data-hover);
-          .transitions(all .3s)
+          .transitions(max-width .3s)
         }
         &:hover::before, &:focus::before{
-          width: 100%;
-          opacity: 1
+          max-width: 100%;
         }
       }
       &.active a::before {
-        width: 100%
+        max-width: 100%
       }
     }
   }
@@ -351,8 +398,9 @@ html, body, #wrapper{
       z-index: 12;
 
       a.navbar-brand {
-        width: 212px;
-        height: 60px;
+        width: 348.355px;
+        height: 93.218px;
+        padding: 0;
         text-indent: -161187em
       };
       li{
@@ -367,7 +415,7 @@ html, body, #wrapper{
           cursor: default;
         };
         a {
-          font-size: 18px;
+          font-size: @menu-item-font-size;
           text-transform: uppercase;
           color: #FFFFFF;
           background-color: transparent;
