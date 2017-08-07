@@ -1,6 +1,9 @@
 .om{
   .ideativos{
     text-align:center;
+    @media (max-width: 1200px){
+      margin-bottom:50px
+    }
 
     .photo{
       width: 176px;
@@ -43,6 +46,16 @@
         border-color:@main-color
       }
     }
+    @media (max-width: 767px){
+      p{
+        margin-bottom: 0;
+        min-height: inherit;
+      }
+      & > a{
+        margin-top: 10px;
+        margin-bottom: 30px
+      }
+    }
   }
   .nav-tabs{
     margin-bottom: 40px;
@@ -77,6 +90,12 @@
   .tab-content{
     padding: 30px;
     background-color: @main-color;
+
+    @media (max-width: 767px){
+      &{
+        margin-bottom: 20px
+      }
+    }
 
     p{
       color: #FFF
@@ -123,6 +142,38 @@
   .premios{
     img{
       margin-bottom:20px
+    }
+  }
+
+  .bg_gray{
+    background-color: #efefef;
+
+    .white_cards{
+      background-color: #FFF;
+      border: 1px solid #95989a;
+      padding: 0 15px 25px 40px;
+      margin-bottom: 30px;
+
+      .obj-w-border{
+        font-size: 22px;
+        font-family: @title-font;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+      }
+      p{
+        font-size: 18px;
+        line-height: 25px
+      }
+      .scroll_frame{
+        overflow: auto;
+
+        @media (min-width: 768px) and (max-width: 1200px){
+          & { height:415px; }
+        }
+        @media (max-width: 767px){
+          & { max-height: 415px; }
+        }
+      }
     }
   }
 }

@@ -5,6 +5,9 @@ html, body {
 html, body, #wrapper{
   min-height: 100%
 }
+body.mobile-menu-open{
+  overflow: hidden;
+}
 #wrapper{
   h1{
     font-family: @title-font;
@@ -12,6 +15,12 @@ html, body, #wrapper{
     margin-top: 0;
     text-transform: uppercase;
     margin-bottom: 40px;
+
+    @media(max-width:767px){
+      &{
+        font-size: 20px
+      }
+    }
 
     &.data_num{
       font-size: 80px;
@@ -49,6 +58,13 @@ html, body, #wrapper{
     font-size: 20px;
     line-height: 35px;
     margin-bottom:30px
+  }
+  @media(max-width:767px){
+    p{
+      font-size: 15px;
+      line-height: 20px;
+      margin-bottom:20px
+    }
   }
   a:focus, a:hover{
     color: @main-color
@@ -112,6 +128,7 @@ html, body, #wrapper{
     position: relative;
     max-height: 348px;
     margin-bottom:40px;
+    overflow:hidden;
     .bg-cover;
   }
 
@@ -154,7 +171,7 @@ html, body, #wrapper{
         border-bottom:2px solid @main-color;
         .transitions(all .4s 1.5s ease-out)
       }
-    };
+    }
     &.aos-animate span::after{
       left: 0;
       width:100%
@@ -185,6 +202,35 @@ html, body, #wrapper{
     }
   }
 
+  @media (min-width:768px) and (max-width:1200px){
+    nav.navbar ul.nav.navbar-nav {
+      margin-bottom: 100px;
+
+      li {
+        margin-bottom: 35px;
+
+        a{
+          font-size: 30px;
+        }
+      }
+    }
+    .obj-w-border-2{
+      font-size: 24px
+    }
+  }
+  @media (max-width:767px){
+    .obj-w-border-2{
+      font-size: 20px
+    }
+  }
+
+  &.mobile-browser{
+    .obj-w-border span::after{
+      left: 0;
+      width:100%
+    }
+  }
+
   /** FRAME for VIDEOS **/
   section.video_wrapper{
     background-color: #000000;
@@ -206,8 +252,55 @@ html, body, #wrapper{
     }
   }
 
+  /** IMGs **/
+  div[class^="col-"] img{
+    max-width: 100%
+  }
+
+  /** Custom Combobox **/
+  .select-wrapper{
+  	position:relative;
+    margin-bottom: 1px;
+
+    &::before{
+    	border-color:@dark-color;
+    	background-color:@main-color;
+    	content:"\f078";
+    	font-family:"FontAwesome";
+      line-height: 43px;
+    	color:#FFFFFF;
+    	display:inline-block;
+    	position:absolute;
+    	right:0;
+    	top:0;
+      bottom:0;
+    	pointer-events:none;
+    	width:40px;
+    	text-align:center;
+    }
+    & > select{
+      padding-right:40px;
+      width: 100%;
+      font-size: 22px;
+      height: 45px;
+      border: 2px solid @main-color;
+      color: @dark-color
+    }
+  }
+  .inverse{
+    .select-wrapper{
+      &::before{
+        border-color:@main-color;
+        background-color:@dark-color;
+      }
+      & > select{
+        border-color:@dark-color
+      }
+    }
+  }
+
   /** FOOTER **/
-  & > footer{
+  footer#main_footer{
     position: relative;
     padding: 0;
     margin: 0;
@@ -261,10 +354,18 @@ html, body, #wrapper{
         }
       }
     }
+  }
+  #relocate_menu{
+    position: relative;
+
     a.footer-svg{
       display:inline-block;
-      margin-left:15px;
-      margin-right:15px;
+      max-width: 100%;
+      padding: 0;
+
+      img, svg{
+        max-width: 100%
+      }
 
       .cls-1{
         .transitions(fill .3s linear)
@@ -272,6 +373,7 @@ html, body, #wrapper{
 
       &.logo-grupo-om{
         width:416.447px;
+        margin-bottom: 55px;
       }
       &.logo-opus-multipla{
         width: 130.359px;
@@ -287,15 +389,21 @@ html, body, #wrapper{
       }
       &.logo-fisht{
         width: 48.939px;
+        position:absolute;
+        right:30px;
+        bottom:30px
       }
 
       &.logo-grupo-om .cls-1,
       &.logo-opus-multipla .cls-1,
       &.logo-brainbox .cls-1,
       &.logo-housecricket .cls-1,
-      &.logo-tailormedia .cls-1,
-      &.logo-fisht .cls-1{
+      &.logo-tailormedia .cls-1
+      {
         fill: #FFFFFF;
+      }
+      &.logo-fisht .cls-1{
+        fill: #9e9d9d
       }
       &.logo-grupo-om:hover .cls-1,
       &.logo-opus-multipla:hover .cls-1,
@@ -313,13 +421,19 @@ html, body, #wrapper{
       }
 
       &.sm-facebook{
-        width:18.091px;
+        &, img, svg {
+          width:18.091px;
+        }
       }
       &.sm-instagram{
-        width:27.719px;
+        &, img, svg {
+          width:27.719px;
+        }
       }
       &.sm-youtube{
-        width: 28.018px;
+        &, img, svg {
+          width: 28.018px;
+        }
       }
       &.sm-facebook .cls-1,
       &.sm-instagram .cls-1,
@@ -386,6 +500,24 @@ html, body, #wrapper{
     }
   }
 
+  /*** Desktops ***/
+  @media screen and (min-width: 1201px){
+    a.footer-svg{
+      &.sm-instagram{
+        margin: 75px 35px 30px
+      }
+    }
+  }
+
+  /*** Smartphones and Tablets ***/
+  @media screen and (max-width: 1200px){
+    a.footer-svg{
+      &.sm-instagram{
+        margin: 90px 95px 30px
+      }
+    }
+  }
+
   /*** Tablets and Desktops ***/
   @media screen and (min-width: 768px) {
     #wrapper > section > .container,
@@ -402,69 +534,8 @@ html, body, #wrapper{
       }
     }
     nav.navbar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      margin: 0;
-      padding: 30px;
-      width: 100%;
-      background: transparent;
-      z-index: 12;
-
-      a.navbar-brand {
-        width: 348.355px;
-        height: 93.218px;
-        padding: 0;
-        text-indent: -161187em
-      }
       ul.nav.navbar-nav{
         margin-top: 20px;
-
-        li{
-          &:hover a, &:focus a, &.active a {
-            background-color: transparent!important;
-          }
-          &.active a {
-            background-color: transparent!important;
-            color:transparent!important
-          }
-          &.active a, &.active:hover a, &.active:focus a{
-            cursor: default;
-          }
-          a {
-            font-size: @menu-item-font-size;
-            text-transform: uppercase;
-            color: #FFFFFF;
-            background-color: transparent;
-            overflow: hidden;
-            display:inline-block;
-            position: relative;
-            padding: 0;
-            margin:0 10px;
-            .transitions(color .1s linear);
-
-            &:hover,&:focus{
-              color:transparent
-            }
-
-            &::before{
-              position: absolute;
-              top: 0;
-              left: 0;
-              overflow: hidden;
-              white-space: nowrap;
-              padding: 0;
-              max-width: 0;
-              color: @main-color;
-              content: attr(data-hover);
-              .transitions(max-width .3s)
-            }
-          }
-        }
-        li a:hover::before, li a:focus::before, li.active a::before{
-          max-width: 100%
-        }
       }
     }
     ul.nav.nav-pills{
@@ -477,29 +548,35 @@ html, body, #wrapper{
         padding-top: 160px
       }
     }
-    & > footer{
-      .footer-svg{
-        &.logo-grupo-om{
-          margin-bottom: 60px
-        }
-        &.sm-instagram{
-          margin: 90px 95px 30px
-        }
-        &.logo-fisht{
-          position:absolute;
-          right:30px;
-          bottom:30px
-        }
-      }
-    }
   }
 
   /*** Smartphones ***/
-  @media screen and (max-width: 768px) {
-    ul.nav.nav-pills{
-      margin-bottom: 30px
+  @media screen and (max-width: 767px) {
+    #wrapper > section > .container,
+    #wrapper > section > .container-fluid {
+      padding: 0 30px
     }
-    & > footer{
+    section{
+      padding-top: 30px;
+      padding-bottom: 30px;
+
+      &.half-pad{
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+      &.video_wrapper{
+        padding: 20px 0 30px;
+      }
+    }
+    header#inside h2{
+      padding: 99px 0;
+      overflow:hidden
+    }
+    ul.nav.nav-pills{
+      margin-bottom: 30px;
+      overflow-x: hidden
+    }
+    footer#main_footer{
       .footer-svg{
         margin-bottom: 30px
       }
