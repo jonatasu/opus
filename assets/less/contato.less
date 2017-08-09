@@ -1,6 +1,13 @@
 .page_contato{
   header#inside{
-    background: transparent url("http://lorempixel.com/1366/360/city/") no-repeat top center;
+    .bg-img{
+      @media (min-width: 768px){
+        background-image: url("http://lorempixel.com/1366/420/city/");
+      }
+      @media (max-width: 767px){
+        background-image: url("http://lorempixel.com/768/300/city/");
+      }
+    }
   }
   h1{
     margin-bottom:25px
@@ -17,5 +24,13 @@
         color:#FFF
       }
     }
+  }
+  #btn_submit.btn_om.btn_default{
+    font-size:17px;
+    font-weight: normal;
+    .round-borders(0);
+  }
+  section.map{
+    height:300px;
   }
 }

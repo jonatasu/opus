@@ -6,7 +6,7 @@
     }
 
     .photo{
-      width: 176px;
+      width: 169px;
       max-height: 258px;
       overflow:hidden;
       margin: 0 auto 25px;
@@ -16,9 +16,8 @@
       }
     }
     h3{
-      font-size: 20px;
-      font-weight: bold;
-      margin: 0 0 20px;
+      font-size: 18px;
+      margin: 0 0 15px;
       color:#FFF
     }
     @media screen and (min-width: 768px) {
@@ -29,8 +28,8 @@
     p{
       color:@main-color;
       min-height: 50px;
-      font-size: 14px;
-      line-height: 20px;
+      font-size: 12px;
+      line-height: 18px;
       margin-bottom:20px
     }
     & > a{
@@ -137,11 +136,26 @@
 }
 .page_quem-somos{
   header#inside{
-    background: transparent url("http://lorempixel.com/1366/360/city/") no-repeat top center;
+    .bg-img{
+      @media (min-width: 768px){
+        background-image: url("http://lorempixel.com/1366/420/city/");
+      }
+      @media (max-width: 767px){
+        background-image: url("http://lorempixel.com/768/300/city/");
+      }
+    }
+  }
+  .clientes{
+    img{
+      max-width:245px!important
+    }
   }
   .premios{
     img{
-      margin-bottom:20px
+      margin-bottom:20px;
+      @media screen and (min-width: 1201px){
+        max-width:290px!important
+      }
     }
   }
 

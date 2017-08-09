@@ -3,6 +3,7 @@
     position:relative;
     display: block;
     overflow:hidden;
+    height:200px;
 
     &::after{
       content: ' ';
@@ -51,8 +52,15 @@
 }
 .page_cases{
   header#inside{
-    background: transparent url("../img/cases.jpg") no-repeat top center;
-    margin-bottom: 0;
+    .bg-img{
+      @media (min-width: 768px){
+        background-image: url("http://lorempixel.com/1366/420/city/");
+      }
+      @media (max-width: 767px){
+        background-image: url("http://lorempixel.com/768/300/city/");
+      }
+      margin-bottom: 0;
+    }
   }
 }
 @media (max-width:1200px) {
@@ -65,7 +73,7 @@
       span {
         display: block;
         margin: 0px 15px;
-        
+
         hr{
           width: 100%
         }

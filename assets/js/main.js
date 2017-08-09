@@ -29,7 +29,9 @@ if(mobileAndTabletcheck() === true){
 function setFooterLocation(){
   if($(window).width() < 1200){
     $("#navbar").append($("#relocate_menu"));
+    $("body").prepend($("#navbar"));
   } else {
+    $("nav > div").append($("#navbar"));
     $("#main_footer").append($("#relocate_menu"));
   }
 }
@@ -37,6 +39,7 @@ function setFooterLocation(){
 // Toggle class "menu-mobile-open" on tag BODY
 $(".navbar-toggle").on("click", function(){
   $("body").toggleClass('mobile-menu-open');
+  //$("#navbar").height($(window).height());
 });
 
 // Prevents a click on the active item on menu
@@ -64,7 +67,7 @@ if($("#mobile_tabs").length !==0){
 $(document).ready(function(){
   setFooterLocation();
 
-  $(".navbar-collapse.collapse").height($(window).height());
+  //$(".navbar-collapse.collapse").height($(window).height());
 
   // Animate the bottom border from main title
   if($("h2.obj-w-border-2").length > 0){
@@ -90,16 +93,18 @@ $(window).scroll(function(){
 
   // Shows NAVBAR when Scrolls Top!
   var st = $(this).scrollTop();
-  if (st > lastScrollTop){
-    navbar.addClass('navbar-scroll-custom');
-  } else {
-    navbar.removeClass('navbar-scroll-custom');
-  }
-  if(st === 0){
-    navbar.removeClass("navbar-mobile-bg");
-  } else {
-    if(navbar.hasClass('navbar-mobile-bg') === false){
-      navbar.addClass('navbar-mobile-bg');
+  if(!$("body").hasClass('mobile-menu-open')){
+    if (st > lastScrollTop){
+      navbar.addClass('navbar-scroll-custom');
+    } else {
+      navbar.removeClass('navbar-scroll-custom');
+    }
+    if(st === 0){
+      navbar.removeClass("navbar-mobile-bg");
+    } else {
+      if(navbar.hasClass('navbar-mobile-bg') === false){
+        navbar.addClass('navbar-mobile-bg');
+      }
     }
   }
   lastScrollTop = st;

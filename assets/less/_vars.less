@@ -5,19 +5,31 @@
 /** TYPOGRAPHY **/
 @title-font: "rift",sans-serif;
 @text-font: "raleway", sans-serif;
-@menu-item-font-size: 25px;
+@menu-item-font-size: 23px;
 
 /** MIXINS **/
+.opacity (@opacity: 0.5) {
+	-webkit-opacity: 	@opacity;
+	-moz-opacity: 		@opacity;
+	opacity: 		      @opacity;
+}
 .round-borders (@radius) {
   border-radius: @radius;
   -moz-border-radius: @radius;
   -webkit-border-radius: @radius;
 }
 .transitions (@trns) {
-  -webkit-transition: @trns;
-  -moz-transition: @trns;
-  -o-transition: @trns;
-  transition: @trns
+  -webkit-transition:@trns;
+  -moz-transition:   @trns;
+  -o-transition:     @trns;
+  transition:        @trns
+}
+.transition_delay (@transition_delay) {
+	-webkit-transition-delay: @transition_delay;
+	-moz-transition-delay:    @transition_delay;
+	-ms-transition-delay:     @transition_delay;
+	-o-transition-delay:      @transition_delay;
+	transition-delay:         @transition_delay;
 }
 .box-shadow(@arguments) {
   box-shadow: @arguments;
@@ -29,6 +41,7 @@
 	-moz-transform: 	 @string;
 	-ms-transform: 		 @string;
 	-o-transform: 		 @string;
+	transform: 		     @string;
 }
 .transform-origin (@x:center, @y:center) {
 	-webkit-transform-origin: @x @y;
@@ -42,5 +55,15 @@
   -o-background-size: cover;
   background-size: cover;
 }
+.animation (@anime) {
+	-webkit-animation: @anime;
+	-moz-animation:    @anime;
+	-ms-animation:     @anime;
+}
 
 /** ANIMATIONS **/
+@-webkit-keyframes head_banners { 50%{ .transform(scale3d(1.5, 1.5, 1.5) translate3d(-10%, -10%, 0)); } }
+@-moz-keyframes head_banners { 50%{ .transform(scale3d(1.5, 1.5, 1.5) translate3d(-10%, -10%, 0)); } }
+@-ms-keyframes head_banners { 50%{ .transform(scale3d(1.5, 1.5, 1.5) translate3d(-10%, -10%, 0)); } }
+@-o-keyframes head_banners { 50%{ .transform(scale3d(1.5, 1.5, 1.5) translate3d(-10%, -10%, 0)); } }
+@keyframes head_banners { 50%{ .transform(scale3d(1.5, 1.5, 1.5) translate3d(-10%, -10%, 0)); } }

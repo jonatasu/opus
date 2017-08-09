@@ -45,7 +45,14 @@
 }
 .page_artigos, .page_artigo_detalhes{
   header#inside{
-    background: transparent url("http://lorempixel.com/1366/360/city/") no-repeat top center;
+    .bg-img{
+      @media (min-width: 768px){
+        background-image: url("http://lorempixel.com/1366/420/city/");
+      }
+      @media (max-width: 767px){
+        background-image: url("http://lorempixel.com/768/300/city/");
+      }
+    }
   }
 }
 @media (max-width: 1200px) {
