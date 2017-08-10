@@ -5,12 +5,13 @@ var navbar        = $('.navbar'),
     lastScrollTop = 0;
 
 // Adds the class "" on the NAVBAR if on a mobile/tablet
-if($(window).width() < 1200){
-  navbar.addClass('navbar-fixed-top');
-} else {
-  navbar.removeClass('navbar-fixed-top');
+function setNavbarFixedLocation(){
+  if($(window).width() < 1200){
+    navbar.addClass('navbar-fixed-top');
+  } else {
+    navbar.removeClass('navbar-fixed-top');
+  }
 }
-
 // Check if we're on a mobile browser
 window.mobileAndTabletcheck = function() {
   var check = false;
@@ -19,10 +20,12 @@ window.mobileAndTabletcheck = function() {
 };
 
 // Adds a class to the BODY tag if we're on mobile browser
-if(mobileAndTabletcheck() === true){
-  $(".om").addClass('mobile-browser');
-} else {
-  $(".om").removeClass('mobile-browser');
+function setMobileClassOnBody(){
+  if(mobileAndTabletcheck() === true){
+    $(".om").addClass('mobile-browser');
+  } else {
+    $(".om").removeClass('mobile-browser');
+  }
 }
 
 // Change Footer place depending on the window size
@@ -65,6 +68,8 @@ if($("#mobile_tabs").length !==0){
 
 // Execute after DOM Ready
 $(document).ready(function(){
+  setMobileClassOnBody();
+  setNavbarFixedLocation();
   setFooterLocation();
 
   //$(".navbar-collapse.collapse").height($(window).height());
@@ -114,6 +119,9 @@ $(window).scroll(function(){
     wrapperHeight = $("#wrapper").height();
     AOS.refresh();
   }
-}).resize(function(){
+})
+.resize(function(){
+  setMobileClassOnBody();
+  setNavbarFixedLocation();
   setFooterLocation();
 });
