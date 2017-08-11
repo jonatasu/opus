@@ -165,7 +165,14 @@
     .white_cards{
       background-color: #FFF;
       border: 1px solid #95989a;
-      padding: 0 15px 25px 40px;
+
+      @media(max-width: 767px){
+        padding: 0 15px 20px;
+      }
+      @media(min-width: 768px){
+        padding: 0 15px 25px 40px;
+      }
+
       margin-bottom: 30px;
 
       .obj-w-border{
@@ -183,9 +190,6 @@
 
         @media (min-width: 768px) and (max-width: 1200px){
           & { height:415px; }
-        }
-        @media (max-width: 767px){
-          & { max-height: 415px; }
         }
       }
     }
