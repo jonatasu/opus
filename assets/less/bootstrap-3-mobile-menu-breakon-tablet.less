@@ -181,7 +181,13 @@
       }
       .navbar-nav {
         float: none!important;
-        margin: 50px 0;
+        @media (min-width: 768px){
+          margin: 50px 0;
+        }
+        @media (max-width: 767px){
+          margin: 35px 0;
+        }
+
 
         > li {
           float: none;
@@ -199,8 +205,16 @@
             font-family: @title-font;
             text-transform: uppercase;
             color: #FFF;
-            font-size: 30px;
-            line-height: 30px;
+
+            @media (min-width: 768px){
+              font-size: 30px;
+              line-height: 30px;
+            }
+            @media (max-width: 767px){
+              font-size: 24px;
+              line-height: 24px;
+            }
+
             padding-top: 5px;
             padding-bottom: 10px;
             text-align: left;
@@ -211,9 +225,17 @@
         a.footer-svg{
           margin-bottom: 0;
 
-          @media (max-width: 767px){
-            &.sm-instagram {
-              margin-top: 50px;
+          &.logo-grupo-om{
+            margin: 0
+          }
+
+
+          &.sm-instagram {
+            @media (max-width: 767px){
+              margin-top: 10px;
+            }
+            @media (min-width: 768px) and (max-width: 1200px){
+              margin-top: 35px;
             }
           }
         }
