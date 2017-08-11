@@ -10,13 +10,16 @@
 /** MIXINS **/
 .opacity (@opacity: 0.5) {
 	-webkit-opacity: 	@opacity;
-	-moz-opacity: 		@opacity;
+	-ms-opacity: 			@opacity;
+	-o-opacity: 			@opacity;
 	opacity: 		      @opacity;
 }
 .round-borders (@radius) {
-  border-radius: @radius;
-  -moz-border-radius: @radius;
-  -webkit-border-radius: @radius;
+	-webkit-border-radius: @radius;
+	-moz-border-radius:		 @radius;
+	-ms-border-radius: 		 @radius;
+	-o-border-radius: 		 @radius;
+  border-radius: 				 @radius;
 }
 .transitions (@trns) {
   -webkit-transition:@trns;
@@ -32,9 +35,11 @@
 	transition-delay:         @transition_delay;
 }
 .box-shadow(@arguments) {
-  box-shadow: @arguments;
-  -moz-box-shadow: @arguments;
-  -webkit-box-shadow: @arguments;
+	-webkit-box-shadow: @arguments;
+	-moz-box-shadow: 		@arguments;
+	-ms-box-shadow: 		@arguments;
+	-o-box-shadow: 			@arguments;
+  box-shadow: 				@arguments;
 }
 .transform(@string){
 	-webkit-transform: @string;
@@ -51,9 +56,24 @@
 }
 .bg-cover(){
   -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  -moz-background-size: 	 cover;
+  -ms-background-size: 		 cover;
+  -o-background-size: 		 cover;
+  background-size: 				 cover;
+}
+.blur(@value){
+  -webkit-filter: blur(@value);
+  -moz-filter: 		blur(@value);
+  -ms-filter: 		blur(@value);
+  -o-filter: 			blur(@value);
+  filter: 				blur(@value);
+}
+.mask(@mask_val){
+	-webkit-mask: @mask_val;
+	-moz-mask: 		@mask_val;
+	-ms-mask: 		@mask_val;
+	-o-mask: 			@mask_val;
+	mask: 				@mask_val;
 }
 .animation (@anime) {
 	-webkit-animation: @anime;

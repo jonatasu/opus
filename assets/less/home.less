@@ -78,17 +78,49 @@
       height: 44px;
       position: absolute;
       top: 50%;
-      margin-top: -22px
+      margin-top: -22px;
+
+      @media(min-width: 1201px){
+        &::after{
+          content: "";
+          position:absolute;
+          background-color: #FFFFFF;
+          top:50%;
+          left:50%;
+          width: 60px;
+          height: 80px;
+          margin-left: -30px;
+          margin-top: -40px;
+          .blur(15px);
+          .opacity(0);
+          .transitions(all .5s ease-in-out);
+          .mask(url("../img/seta.svg") no-repeat 50% 50%);
+        }
+      }
+    }
+    @media(min-width: 1201px){
+      &:hover{
+        span{
+          &::after{
+            width: 22px;
+            height: 44px;
+            margin-left: -11px;
+            margin-top: -22px;
+            .blur(0);
+            .opacity(1);
+          }
+        }
+      }
     }
     &.left{
       span {
-        background: transparent url(../img/seta.svg) no-repeat center center;
-        .transform(rotate(180deg))
+        .transform(rotate(180deg));
+        background: transparent url("../img/seta.svg") no-repeat center center;
       }
     }
     &.right{
       span {
-        background: transparent url(../img/seta.svg) no-repeat center center;
+        background: transparent url("../img/seta.svg") no-repeat center center;
       }
     }
   }
