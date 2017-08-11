@@ -67,9 +67,24 @@
     }
   }
   input:focus{ border-color: darken(@main-color, 15%) };
-  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */ font-size:20px; color: lighten(@dark-color, 10%) }
-  ::-moz-placeholder { /* Firefox 19+ */ font-size:20px; color: lighten(@dark-color, 10%) }
-  :-ms-input-placeholder { /* IE 10+ */ font-size:20px; color: lighten(@dark-color, 10%) }
-  :-moz-placeholder { /* Firefox 18- */ font-size:20px; color: lighten(@dark-color, 10%) }
-  ::placeholder { font-size:20px; color: lighten(@dark-color, 10%) }
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */ color: lighten(@dark-color, 10%) }
+  ::-moz-placeholder { /* Firefox 19+ */ color: lighten(@dark-color, 10%) }
+  :-ms-input-placeholder { /* IE 10+ */ color: lighten(@dark-color, 10%) }
+  :-moz-placeholder { /* Firefox 18- */ color: lighten(@dark-color, 10%) }
+  ::placeholder { color: lighten(@dark-color, 10%) }
+
+  @media (min-width: 1201px){
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */ font-size:20px }
+    ::-moz-placeholder { /* Firefox 19+ */ font-size:20px }
+    :-ms-input-placeholder { /* IE 10+ */ font-size:20px }
+    :-moz-placeholder { /* Firefox 18- */ font-size:20px }
+    ::placeholder { font-size:20px }
+  }
+  @media (max-width: 1200px){
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */ font-size:16px }
+    ::-moz-placeholder { /* Firefox 19+ */ font-size:16px }
+    :-ms-input-placeholder { /* IE 10+ */ font-size:16px }
+    :-moz-placeholder { /* Firefox 18- */ font-size:16px }
+    ::placeholder { font-size:16px }
+  }
 }
