@@ -1,8 +1,17 @@
-$(".data_num").each(function(){
-  var target = $(this).find("span"),
-      startVal = parseInt(target.html()),
-      endVal = parseInt(target.data("n"));
+$(document).ready(function() {
+  
+    var options = {
+      useEasing : true,
+      useGrouping : true
+    };
 
-  var numAnim = new CountUp(target, startVal, endVal);
-  numAnim.start();
+    $(".data_num").each(function(){
+      var target = $(this).find("span"),
+          endVal = target.data("count");
+
+      var numAnim = new CountUp(target, 0, endVal, options);
+      //console.log(target, endVal);
+      numAnim.start();
+    });
+
 });
