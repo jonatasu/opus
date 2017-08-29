@@ -31,6 +31,12 @@
     }
 
     .obj-w-border-2{
+      @media (max-width: 767px){
+        font-size:26px;
+      }
+      @media (min-width: 768px){
+        font-size:30px;
+      }
       span{
         hr{
           .transitions(all 1s .5s ease-out)
@@ -82,6 +88,57 @@
         background-image: url("../img/headers/cases-min.jpg");
       }
       margin-bottom: 0;
+    }
+  }
+}
+.nav-categories{
+  text-align:center;
+
+  h2{
+    display: inline-block;
+    font-family: @title-font;
+    margin: 0 15px;
+
+    a{
+      color: @dark-color;
+      font-size: 26px;
+      line-height: 27px;
+
+      &:hover,&:focus{
+        color: @dark-color;
+        text-decoration: none
+      }
+      &:hover{
+        span::after {
+          left: 0;
+          width: 100%;
+        }
+      }
+      span {
+        position: relative;
+
+        &::after {
+          content: " ";
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          width: 0;
+          border-bottom: 2px solid @main-color;
+          -webkit-transition-delay: 0 !important;
+          transition-delay: 0 !important;
+          .transitions(all .4s ease-out);
+        }
+      }
+    }
+    &.active{
+      a{
+        span {
+          &::after {
+            left: 0;
+            width: 100%;
+          }
+        }
+      }
     }
   }
 }

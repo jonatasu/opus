@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-sm-6 form-group">
+    [text* first_name class:form-control id:first_name placeholder:"Primeiro nome*" required]
+  </div>
+  <div class="col-sm-6 form-group">
+    [text* last_name class:form-control id:last_name placeholder:"Segundo nome*" required]
+  </div>
+</div>
+<div class="form-group">
+  [text* company class:form-control id:company placeholder:"Empresa*" required]
+</div>
+<div class="row">
+  <div class="col-sm-6 form-group">
+    [email* email class:form-control id:email placeholder:"E-mail*" required]
+  </div>
+  <div class="col-sm-6 form-group">
+    [tel* phone class:form-control id:phone placeholder:"Telefone*" required]
+  </div>
+</div>
+<div class="form-group">
+  [textarea* message class:form-control id:message placeholder:"Algo que queira nos informar sobre o projeto (opcional)"]
+</div>
+<div class="row">
+  <div class="col-sm-9 form-group">
+    <div class="checkbox_wrapper">
+      [checkbox* id:newsletter name:newsletter value:no]
+      <label for="newsletter">Gostaria de receber notícias e atualizações, podendo me desinscrever a hora que pretender.</label>
+    </div>
+  </div>
+  <div class="col-sm-3 form-group text-right">
+    [submit id=btn_submit class:btn_om class:btn_default "Enviar"]
+  </div>
+</div>

@@ -2,13 +2,31 @@
   /* Needed for Scoll Event Changes
    *******************************************/
   nav.navbar {
+    position:fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 65px;
+    z-index: 11030;
     background-color: transparent;
-    z-index: 12;
+    .transitions(all 0s ease-out);
 
+    &.navbar-mobile-bg{
+      background-color: fade(@dark-color, 95%);
+      .transitions(all .6s ease-out);
+    }
+    &.navbar-scroll-custom {
+      .transform(translateY(-65px));
+      .transitions(all 0s ease-out);
+    }
+    &.navbar-fixed-top {
+      top: 0;
+      border-width: 0 0 1px;
+      -webkit-transition-delay: 0!important;
+      -moz-transition-delay: 0!important;
+      -ms-transition-delay: 0!important;
+      -o-transition-delay: 0!important;
+      transition-delay: 0!important;
+    }
     a.navbar-brand {
       padding: 0;
       text-indent: -161187em
@@ -76,9 +94,19 @@
   }
   @media (min-width: 1201px) {
     nav.navbar{
-      position: absolute;
       padding: 30px;
+      height: 120px;
 
+      &.navbar-mobile-bg{
+        padding: 0 30px;
+        height: 65px;
+
+        a.navbar-brand{
+          width: 305px;
+          height: 50px;
+          margin-top: 6px
+        }
+      }
       ul.nav.navbar-nav{
         li{
           a{
@@ -107,27 +135,19 @@
       }
     }
     nav.navbar{
-      z-index: 11030;
-      background-color: transparent;
-      .transitions(all .6s ease-out);
+      height: 65px;
 
       a.navbar-brand {
         width: 242;
       }
 
-      &.navbar-scroll-custom {
-        .transform(translateY(-65px))
-      }
-      &.navbar-mobile-bg{
-        background-color: fade(@dark-color, 95%)
-      }
       .navbar-header {
         float: none;
 
         .navbar-brand{
           text-indent: -161187em;
           padding: 0;
-          margin: 15px;
+          margin: 8px 15px;
         }
       }
       .navbar-left,.navbar-right {
@@ -137,7 +157,7 @@
         display: block;
         z-index: 9992;
         position: absolute;
-        top: 5px;
+        top: 8px;
         right: 5px;
         width: 50px;
         height: 50px;
@@ -153,10 +173,6 @@
           background-color: @main-color;
           .transitions(all .3s linear)
         }
-      }
-      .navbar-fixed-top {
-        top: 0;
-        border-width: 0 0 1px;
       }
     }
     .navbar-collapse{
@@ -174,7 +190,7 @@
       padding: 60px 15px 30px;
       border: 0 none;
       overflow:auto!important;
-      .transitions(opacity .3s linear);
+      .transitions(opacity 0s linear);
       .opacity(0);
 
       &.collapse {
@@ -191,7 +207,7 @@
       }
       .navbar-nav {
         float: none!important;
-        margin: 65px 0;
+        margin: 35px 0;
 
         > li {
           float: none;
@@ -231,7 +247,8 @@
 
 
           &.sm-instagram {
-            margin-top: 60px;
+            margin-top: 20px;
+            //margin-bottom: 45px
           }
         }
       }
